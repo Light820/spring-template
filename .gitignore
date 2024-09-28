@@ -1,0 +1,13 @@
+.gradle
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+.idea/
+.*iml
+*.ipr
+out/
+
+.DS_Store
+
+**/kls_database.db

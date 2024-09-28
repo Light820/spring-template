@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 }
 
 include(":convention")
+include(":common")

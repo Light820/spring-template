@@ -1,24 +1,20 @@
 [versions]
 spring-boot = "3.1.2"
-spring-boot-dependencies = "3.1.2"
-spring-boot-starter-web = "3.1.2"
-spring-boot-starter-data-jpa = "3.1.2"
-spring-boot-starter-test = "3.1.2"
-spring-boot-starter-security = "3.1.2"
-
-# Java version (optional)
-java = "17"
+kotlin = "2.0.20"
+spring-dependency-management = "1.1.0"
 
 [libraries]
-# Spring Boot core dependencies
-spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "spring-boot" }
-spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot-starter-web" }
-spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot-starter-data-jpa" }
-spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "spring-boot-starter-security" }
-spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot-starter-test" }
-
-# Additional Spring Boot dependencies
-spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "spring-boot-dependencies" }
+spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web"}
+spring-boot-starter = { group = "org.springframework.boot", name = "spring-boot-starter"}
+spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa"}
+spring-boot-starter-security = { group = "org.springframework.boot", name = "spring-boot-starter-security"}
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test"}
+h2 = { group = "com.h2database", name = "h2", version = "2.1.214" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
 
 [plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }

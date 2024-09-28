@@ -4,3 +4,5 @@ import org.gradle.kotlin.dsl.getByType
 
 val Project.libs
     get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+const val GROUP_NAME = "com.example"

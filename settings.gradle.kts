@@ -11,3 +11,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+include(":app")

@@ -8,6 +8,7 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
             pluginManager.apply("io.spring.dependency-management")
             pluginManager.apply("org.springframework.boot")
             pluginManager.apply("org.jetbrains.kotlin.jvm")
+            pluginManager.apply("org.jetbrains.kotlin.plugin.spring")
 
             dependencies {
                 add("implementation", libs.findLibrary("spring-boot-starter").get())
@@ -17,14 +18,6 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
                 add("testImplementation", libs.findLibrary("spring-boot-starter-test").get())
                 add("implementation", libs.findLibrary("h2").get())
                 add("implementation", libs.findLibrary("kotlin-reflect").get())
-            }
-
-            tasks.named("compileKotlin") {
-                doFirst {
-                    val kotlinOptions = javaClass.getMethod("getKotlinOptions").invoke(this)
-                    kotlinOptions.javaClass.getMethod("setJvmTarget", String::class.java).invoke(kotlinOptions, "21")
-                    kotlinOptions.javaClass.getMethod("setFreeCompilerArgs", List::class.java).invoke(kotlinOptions, listOf("-Xjsr305=strict"))
-                }
             }
         }
     }

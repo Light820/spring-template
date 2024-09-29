@@ -18,6 +18,14 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("h2").get())
                 add("implementation", libs.findLibrary("kotlin-reflect").get())
             }
+
+            tasks.named("compileKotlin") {
+                doFirst {
+                    val kotlinOptions = javaClass.getMethod("getKotlinOptions").invoke(this)
+                    kotlinOptions.javaClass.getMethod("setJvmTarget", String::class.java).invoke(kotlinOptions, "21")
+                    kotlinOptions.javaClass.getMethod("setFreeCompilerArgs", List::class.java).invoke(kotlinOptions, listOf("-Xjsr305=strict"))
+                }
+            }
         }
     }
 }

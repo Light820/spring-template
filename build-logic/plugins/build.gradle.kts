@@ -25,4 +25,10 @@ gradlePlugin {
             id = "com.example.junit5"
             implementationClass = "JUnit5ConventionPlugin" }
     }
+
+    plugins {
+        register("com.example.kotlin") {
+            id = "com.example.kotlin"
+            implementationClass = "KotlinConventionPlugin" }
+    }
 }

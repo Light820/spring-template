@@ -13,4 +13,14 @@ dependencyResolutionManagement {
 }
 
 includeBuild("build-logic")
-include(":app")
+include("application:app")
+include("application:controller")
+findProject(":application:controller")?.name = "controller"
+include("application:domain-entity")
+findProject(":application:domain-entity")?.name = "domain-entity"
+include("application:domain-logic")
+findProject(":application:domain-logic")?.name = "domain-logic"
+include("application:repository")
+findProject(":application:repository")?.name = "repository"
+include("application:remote")
+findProject(":application:remote")?.name = "remote"

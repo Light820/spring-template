@@ -7,7 +7,7 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("io.spring.dependency-management")
             pluginManager.apply("org.springframework.boot")
-            pluginManager.apply("org.jetbrains.kotlin.jvm")
+            pluginManager.apply("com.example.kotlin")
             pluginManager.apply("org.jetbrains.kotlin.plugin.spring")
 
             dependencies {

@@ -11,13 +11,12 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jetbrains.kotlin.plugin.spring")
 
             dependencies {
-                add("implementation", libs.findLibrary("spring-boot-starter").get())
-                add("implementation", libs.findLibrary("spring-boot-starter-web").get())
-                add("implementation", libs.findLibrary("spring-boot-starter-data-jpa").get())
-                add("implementation", libs.findLibrary("spring-boot-starter-security").get())
-                add("testImplementation", libs.findLibrary("spring-boot-starter-test").get())
-                add("implementation", libs.findLibrary("h2").get())
-                add("implementation", libs.findLibrary("kotlin-reflect").get())
+                implementation(libs.findLibrary("spring-boot-starter").get())
+                implementation(libs.findLibrary("spring-boot-starter-web").get())
+                implementation(libs.findLibrary("spring-boot-starter-data-jpa").get())
+                implementation(libs.findLibrary("spring-boot-starter-security").get())
+                testImplementation(libs.findLibrary("spring-boot-starter-test").get())
+                implementation(libs.findLibrary("h2").get())
             }
         }
     }

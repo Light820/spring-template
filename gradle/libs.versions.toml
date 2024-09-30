@@ -2,6 +2,8 @@
 spring-boot = "3.1.2"
 kotlin = "2.0.20"
 spring-dependency-management = "1.1.0"
+junit5 = "5.11.1"
+mockito = "5.14.1"
 
 [libraries]
 spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web"}
@@ -11,6 +13,13 @@ spring-boot-starter-security = { group = "org.springframework.boot", name = "spr
 spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test"}
 h2 = { group = "com.h2database", name = "h2", version = "2.1.214" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
+junit5-api = { group = "org.junit.jupiter", name = "junit-jupiter-api" }
+junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit5" }
+junit5-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit5" }
+junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine" }
+junit5-params = { group = "org.junit.jupiter", name = "junit-jupiter-params" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-junit5 = { group = "org.mockito", name = "mockito-junit-jupiter", version.ref = "mockito" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

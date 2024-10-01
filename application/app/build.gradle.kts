@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(projects.application.controller)
+    implementation(projects.application.repository)
+    implementation(projects.application.local)
 }
-
-group = "com.example"
+group = "com.organisation.projectname"

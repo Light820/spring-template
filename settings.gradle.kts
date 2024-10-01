@@ -24,3 +24,7 @@ include("application:repository")
 findProject(":application:repository")?.name = "repository"
 include("application:remote")
 findProject(":application:remote")?.name = "remote"
+include("application:common")
+findProject(":application:common")?.name = "common"
+include("application:local")
+findProject(":application:local")?.name = "local"

@@ -12,6 +12,10 @@
 ![Build Status](https://github.com/Light820/spring-template/actions/workflows/build.yml/badge.svg?branch=main)
 ![Build Status](https://github.com/Light820/spring-template/actions/workflows/build.yml/badge.svg?branch=develop)
 ![Build Status](https://github.com/Light820/spring-template/actions/workflows/build.yml/badge.svg?branch=stage)
+[![Docker Pulls](https://img.shields.io/docker/pulls/light820/pokeapi?logo=docker)](https://hub.docker.com/repository/docker/light820/pokeapi/general)
+
+
+
 <br/>
 
 </div>

@@ -1,5 +1,6 @@
 name: develop
 
+# Only build when develop is pushed to
 on:
   push:
     branches:

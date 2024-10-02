@@ -1,5 +1,6 @@
 name: main
 
+# Only build on changes on main
 on:
   push:
     branches:

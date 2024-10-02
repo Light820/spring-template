@@ -70,6 +70,6 @@ jobs:
       # Step 10: Push Docker image to DockerHub (Optional)
       # This is needed only if you want to push the image to DockerHub after building
       - name: Push Docker image
-        run: docker push lighstream/pokeapi
+        run: docker push light820/pokeapi
         if: success()
 

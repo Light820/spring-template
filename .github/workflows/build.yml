@@ -1,15 +1,13 @@
-name: Build
+name: main-branch
 
 # Trigger builds on changes to main or develop branches
 on:
   push:
     branches:
       - main
-      - develop  # Added develop branch
   pull_request:
     branches:
       - main
-      - develop  # Added develop branch
 
 jobs:
   build:

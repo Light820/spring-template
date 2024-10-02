@@ -62,7 +62,10 @@ jobs:
 
       # Step 9: Build the Docker image
       - name: Build Docker image
-        run: docker build --build-arg JAR_FILE=build/libs/*.jar -t lighstream/pokeapi .
+        run: |
+          JAR_FILE=$(ls build/libs/*.jar | head -n 1)
+          echo "Found JAR file: $JAR_FILE"
+          docker build --build-arg JAR_FILE=$JAR_FILE -t lighstream/pokeapi .
 
       # Step 10: Push Docker image to DockerHub (Optional)
       # This is needed only if you want to push the image to DockerHub after building

@@ -6,7 +6,6 @@ import org.springframework.boot.runApplication
 @SpringBootApplication(scanBasePackages = ["com.organisation.projectname"])
 class ExampleApplication
 
-
 fun main(args: Array<String>) {
     runApplication<ExampleApplication>(*args)
 }

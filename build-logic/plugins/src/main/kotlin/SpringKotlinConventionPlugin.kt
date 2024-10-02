@@ -11,6 +11,7 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jetbrains.kotlin.plugin.spring")
             pluginManager.apply("org.jetbrains.kotlin.plugin.jpa")
             pluginManager.apply("org.jetbrains.kotlin.plugin.noarg")
+            pluginManager.apply("java")
 
             dependencies {
                 implementation(libs.findLibrary("spring-boot-starter-web").get())

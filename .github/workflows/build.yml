@@ -1,13 +1,15 @@
-name: main
+name: Build
 
-# Only build on changes on main
+# Trigger builds on changes to main or develop branches
 on:
   push:
     branches:
       - main
+      - develop  # Added develop branch
   pull_request:
     branches:
       - main
+      - develop  # Added develop branch
 
 jobs:
   build:
@@ -47,4 +49,3 @@ jobs:
       # Step 6: Run tests using JUnit 5
       - name: Run tests with JUnit 5
         run: ./gradlew test
-

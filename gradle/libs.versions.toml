@@ -5,13 +5,14 @@ spring-dependency-management = "1.1.4"
 junit5 = "5.11.1"
 mockito = "5.14.1"
 arrow = "1.2.0"
+postgres = "42.7.4"
 
 [libraries]
-spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web"}
-spring-boot-starter = { group = "org.springframework.boot", name = "spring-boot-starter"}
-spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa"}
-spring-boot-starter-security = { group = "org.springframework.boot", name = "spring-boot-starter-security"}
-spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test"}
+spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
+spring-boot-starter = { group = "org.springframework.boot", name = "spring-boot-starter" }
+spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa" }
+spring-boot-starter-security = { group = "org.springframework.boot", name = "spring-boot-starter-security" }
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
 h2 = { group = "com.h2database", name = "h2", version = "2.1.214" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
 junit5-api = { group = "org.junit.jupiter", name = "junit-jupiter-api" }
@@ -24,6 +25,7 @@ mockito-junit5 = { group = "org.mockito", name = "mockito-junit-jupiter", versio
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 arrow-fx-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
 arrow-optics = { module = "io.arrow-kt:arrow-optics", version.ref = "arrow" }
+postgres-sql = { group = "org.postgresql", name = "postgresql", version.ref = "postgres" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

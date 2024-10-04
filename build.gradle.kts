@@ -5,4 +5,5 @@ plugins {
     alias(libs.plugins.kotlin.spring) apply false
     alias(libs.plugins.kotlin.jpa) apply false
     alias(libs.plugins.kotlin.noarg) apply false
+    alias(libs.plugins.spotless.plugin) apply false
 }

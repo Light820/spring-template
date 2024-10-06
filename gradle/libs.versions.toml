@@ -8,6 +8,7 @@ arrow = "1.2.0"
 postgres = "42.7.4"
 spotless = "7.0.0.BETA2"
 ktlint = "1.3.1"
+licensee = "1.11.0"
 
 [libraries]
 spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
@@ -30,6 +31,7 @@ arrow-optics = { module = "io.arrow-kt:arrow-optics", version.ref = "arrow" }
 postgres-sql = { group = "org.postgresql", name = "postgresql", version.ref = "postgres" }
 spotless = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 ktlint = { group = "com.pinterest", name = "ktlint", version.ref = "ktlint" }
+licensee = { group = "app.cash.licensee", name = "licensee-gradle-plugin", version.ref = "licensee" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
@@ -39,3 +41,4 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version.ref = "kotlin" }
 spotless-plugin = { id = "com.diffplug.spotless", version.ref = "spotless" }
+licensee-plugin = { id = "app.cash.licensee", version.ref = "licensee" }

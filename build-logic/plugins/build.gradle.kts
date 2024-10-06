@@ -11,6 +11,7 @@ repositories {
 dependencies {
     implementation(projects.common)
     implementation(libs.spotless)
+    implementation(libs.licensee)
 }
 
 gradlePlugin {
@@ -32,6 +33,13 @@ gradlePlugin {
         register("com.example.kotlin") {
             id = "com.example.kotlin"
             implementationClass = "KotlinConventionPlugin"
+        }
+    }
+
+    plugins {
+        register("com.example.licensee") {
+            id = "com.example.licensee"
+            implementationClass = "LicenseeConventionPlugin"
         }
     }
 

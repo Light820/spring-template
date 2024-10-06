@@ -6,7 +6,6 @@ plugins {
 
 group = "com.organisation.projectname"
 
-
 dependencies {
     implementation(projects.application.common)
     implementation(projects.application.repository)

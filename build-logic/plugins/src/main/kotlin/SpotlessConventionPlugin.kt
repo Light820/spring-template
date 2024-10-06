@@ -11,7 +11,26 @@ class SpotlessConventionPlugin : Plugin<Project> {
             configure<SpotlessExtension> {
                 kotlin {
                     target("**/*.kt", "**/*.kts")
-                    ktlint("1.3.1")
+                    targetExclude("build/**/*.kts")
+                    val ktlintVersion = libs.findVersion("ktlint").get().toString()
+                    ktlint(ktlintVersion)
+                }
+
+                json {
+                    target("src/**/*.json")
+                    simple()
+                }
+
+                format("sql") {
+                    target("**/*.sql")
+                    prettier(mapOf("prettier" to "latest", "prettier-plugin-sql" to "latest"))
+                        .config(mapOf("parser" to "sql", "plugins" to listOf("prettier-plugin-sql")))
+                }
+
+                format("toml") {
+                    target("**/*.toml")
+                    prettier(mapOf("prettier" to "latest", "prettier-plugin-toml" to "latest"))
+                        .config(mapOf("parser" to "toml", "plugins" to listOf("prettier-plugin-toml")))
                 }
             }
         }

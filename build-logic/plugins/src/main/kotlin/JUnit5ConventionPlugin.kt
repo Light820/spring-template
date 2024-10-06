@@ -9,7 +9,6 @@ import org.gradle.kotlin.dsl.withType
 open class JUnit5ConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-
             pluginManager.apply("org.jetbrains.kotlin.jvm")
 
             dependencies {
@@ -23,11 +22,12 @@ open class JUnit5ConventionPlugin : Plugin<Project> {
             tasks.withType<Test> {
                 useJUnitPlatform()
                 testLogging {
-                    events = setOfNotNull(
-                        TestLogEvent.FAILED,
-                        TestLogEvent.PASSED,
-                        TestLogEvent.SKIPPED
-                    )
+                    events =
+                        setOfNotNull(
+                            TestLogEvent.FAILED,
+                            TestLogEvent.PASSED,
+                            TestLogEvent.SKIPPED,
+                        )
                     showStackTraces = true
                     exceptionFormat = TestExceptionFormat.FULL
                 }

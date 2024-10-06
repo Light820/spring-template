@@ -12,6 +12,9 @@ dependencyResolutionManagement {
     }
 }
 
+org.apache.tools.ant.DirectoryScanner
+    .removeDefaultExclude(".gitignore")
+
 includeBuild("build-logic")
 include("application:app")
 include("application:controller")

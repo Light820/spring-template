@@ -1,11 +1,13 @@
 [versions]
 spring-boot = "3.1.3"
-kotlin = "2.1.0-Beta1"
+kotlin = "2.0.20"
 spring-dependency-management = "1.1.4"
 junit5 = "5.11.1"
 mockito = "5.14.1"
 arrow = "1.2.0"
 postgres = "42.7.4"
+spotless = "7.0.0.BETA2"
+ktlint = "1.3.1"
 
 [libraries]
 spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
@@ -26,6 +28,8 @@ arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 arrow-fx-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
 arrow-optics = { module = "io.arrow-kt:arrow-optics", version.ref = "arrow" }
 postgres-sql = { group = "org.postgresql", name = "postgresql", version.ref = "postgres" }
+spotless = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+ktlint = { group = "com.pinterest", name = "ktlint", version.ref = "ktlint" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
@@ -34,3 +38,4 @@ kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version.ref = "kotlin" }
+spotless-plugin = { id = "com.diffplug.spotless", version.ref = "spotless" }

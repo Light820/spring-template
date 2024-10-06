@@ -10,6 +10,7 @@ repositories {
 
 dependencies {
     implementation(projects.common)
+    implementation(libs.spotless)
 }
 
 gradlePlugin {
@@ -23,12 +24,21 @@ gradlePlugin {
     plugins {
         register("com.example.junit5") {
             id = "com.example.junit5"
-            implementationClass = "JUnit5ConventionPlugin" }
+            implementationClass = "JUnit5ConventionPlugin"
+        }
     }
 
     plugins {
         register("com.example.kotlin") {
             id = "com.example.kotlin"
-            implementationClass = "KotlinConventionPlugin" }
+            implementationClass = "KotlinConventionPlugin"
+        }
+    }
+
+    plugins {
+        register("com.example.spotless") {
+            id = "com.example.spotless"
+            implementationClass = "SpotlessConventionPlugin"
+        }
     }
 }

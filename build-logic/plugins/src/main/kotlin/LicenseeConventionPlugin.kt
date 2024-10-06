@@ -13,7 +13,7 @@ class LicenseeConventionPlugin : Plugin<Project> {
                 allow("MIT")
                 allowUrl("https://spdx.org/licenses/MIT.txt")
                 allow("Apache-2.0")
-                allowUrl("https://repository.jboss.org/licenses/apache-2.0.txt")
+//                allowUrl("https://repository.jboss.org/licenses/apache-2.0.txt")
                 allow("EPL-1.0")
                 allow("LGPL-2.1-only")
                 allowUrl("https://www.mozilla.org/en-US/MPL/2.0/")

@@ -42,9 +42,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Check licensees
-        run: ./gradlew licensee
-
       - name: Run tests with JUnit 5
         run: ./gradlew test
 

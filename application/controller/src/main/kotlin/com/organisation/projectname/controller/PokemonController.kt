@@ -50,7 +50,7 @@ class PokemonController(
     }
 
     @GetMapping
-    private fun findAll(pageable: Pageable, principal: Principal): ResponseEntity<List<PokemonDtoOut>> {
+     fun findAll(pageable: Pageable, principal: Principal): ResponseEntity<List<PokemonDtoOut>> {
         return repository.findByOwner(principal.name, PageInfo(pageable.pageNumber, pageable.pageSize))
             .fold(
                 ifLeft = { ResponseEntity.notFound().build() },

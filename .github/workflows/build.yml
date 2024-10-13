@@ -51,6 +51,9 @@ jobs:
         run: ./gradlew reportMerge
         if: always()
 
+      - name: Check SARIF file
+        run: cat build/reports/detekt/project-report.sarif
+
       # Step 6: Run tests using JUnit 5
       - name: Run tests with JUnit 5
         run: ./gradlew test

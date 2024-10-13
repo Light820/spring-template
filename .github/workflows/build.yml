@@ -49,6 +49,7 @@ jobs:
 
       - name : Merge Detekt Reports
         run: ./gradlew reportMerge
+        if: always()
 
       # Step 6: Run tests using JUnit 5
       - name: Run tests with JUnit 5

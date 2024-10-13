@@ -59,7 +59,7 @@ class PokemonController(
     }
 
     @PutMapping("/{requestedId}")
-    private fun put(
+     fun put(
         @PathVariable requestedId: Int,
         @RequestBody pokemonDtoIn: PokemonDtoIn,
         principal: Principal,

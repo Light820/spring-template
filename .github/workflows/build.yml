@@ -48,6 +48,12 @@ jobs:
       - name: Run tests with JUnit 5
         run: ./gradlew test
 
+      - name: Detekt code analysis upload to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        if: success() || failure()
+        with:
+          sarif_file: build/reports/detekt/project-report.sarif
+
       # Step 7: Set up Docker (install Docker CLI)
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2

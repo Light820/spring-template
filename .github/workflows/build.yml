@@ -42,7 +42,10 @@ jobs:
 
       # Step 5: Build the project using Gradle (compiling Kotlin code)
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build -x detekt spotlessCheck
+
+      - name: Code Analysis - Detekt
+        run: ./gradlew detekt
 
       - name : Merge Detekt Reports
         run: ./gradlew reportMerge

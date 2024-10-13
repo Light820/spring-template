@@ -9,6 +9,7 @@ class ExampleApplication
 fun main(args: Array<String>) {
     runApplication<ExampleApplication>(*args)
     val hello = ""
+    val hello2 = ""
 }
 
 private fun unsued() {

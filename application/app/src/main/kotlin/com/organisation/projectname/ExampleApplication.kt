@@ -11,7 +11,6 @@ fun main(args: Array<String>) {
     val hello = ""
 }
 
-
 private fun unsued() {
     val notUsed = true
 }

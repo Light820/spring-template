@@ -10,3 +10,8 @@ fun main(args: Array<String>) {
     runApplication<ExampleApplication>(*args)
     val hello = ""
 }
+
+
+private fun unsued() {
+    val notUsed = true
+}

@@ -45,6 +45,7 @@ class PokemonController(
                     .toUri()
 
                 val hello = ""
+                val hello2 = ""
                 ResponseEntity.created(locationOfNewPokemon).body(it.toDto())
             },
         )

@@ -6,5 +6,6 @@ plugins {
     alias(libs.plugins.kotlin.jpa) apply false
     alias(libs.plugins.kotlin.noarg) apply false
     alias(libs.plugins.spotless.plugin) apply false
+    alias(libs.plugins.licensee.plugin) apply false
     id("com.example.spotless")
 }

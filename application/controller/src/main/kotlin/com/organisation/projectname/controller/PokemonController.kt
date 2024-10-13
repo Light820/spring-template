@@ -22,7 +22,8 @@ class PokemonController(
     private fun findById(@PathVariable id: Int, principal: Principal): ResponseEntity<PokemonDtoOut> {
         return repository.findByIdAndOwner(id, principal.name).fold(
             ifLeft = { ResponseEntity.internalServerError().build() },
-            ifRight = { ResponseEntity.ok(it.toDto()) },
+            ifRight = { ResponseEntity.ok(it.toDto())
+                      },
         )
     }
 
@@ -43,6 +44,7 @@ class PokemonController(
                     .buildAndExpand(it.id)
                     .toUri()
 
+                val hello = ""
                 ResponseEntity.created(locationOfNewPokemon).body(it.toDto())
             },
         )

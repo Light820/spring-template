@@ -3,11 +3,16 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+.kotlin
+
 .idea/
 .*iml
 *.ipr
 out/
 
 .DS_Store
+
+
+
 
 **/kls_database.db

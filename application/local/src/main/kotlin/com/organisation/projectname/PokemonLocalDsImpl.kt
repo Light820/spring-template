@@ -9,10 +9,14 @@ import org.springframework.stereotype.Repository
 class PokemonLocalDsImpl(
     private val jpaDataSource: PokemonJpaDs,
 ) : PokemonLocalDs {
-    override fun findByIdAndOwner(id: Int, owner: String): Either<PokemonError, Pokemon> {
-        val request = Either.catch {
-            jpaDataSource.findByIdAndOwner(id, owner)
-        }
+    override fun findByIdAndOwner(
+        id: Int,
+        owner: String,
+    ): Either<PokemonError, Pokemon> {
+        val request =
+            Either.catch {
+                jpaDataSource.findByIdAndOwner(id, owner)
+            }
 
         return request.fold(
             ifLeft = { PokemonError.DatabasePokemonError.left() },
@@ -22,49 +26,57 @@ class PokemonLocalDsImpl(
         )
     }
 
-
-    override fun findByOwner(name: String, pageInfo: PageInfo): Either<PokemonError, List<Pokemon>> {
-        val request = Either.catch {
-            jpaDataSource.findByOwner(name, pageInfo.toPage())
-        }
+    override fun findByOwner(
+        name: String,
+        pageInfo: PageInfo,
+    ): Either<PokemonError, List<Pokemon>> {
+        val request =
+            Either.catch {
+                jpaDataSource.findByOwner(name, pageInfo.toPage())
+            }
 
         return request.fold(
             ifLeft = { PokemonError.DatabasePokemonError.left() },
-            ifRight = { it.content.map { it.toDomain() }.right() }
+            ifRight = { it.content.map { it.toDomain() }.right() },
         )
-
     }
 
-    override fun existsByIdAndOwner(id: Int, owner: String): Either<PokemonError, Boolean> {
-        val request = Either.catch {
-            jpaDataSource.existsByIdAndOwner(id, owner)
-        }
+    override fun existsByIdAndOwner(
+        id: Int,
+        owner: String,
+    ): Either<PokemonError, Boolean> {
+        val request =
+            Either.catch {
+                jpaDataSource.existsByIdAndOwner(id, owner)
+            }
 
         return request.fold(
             ifLeft = { PokemonError.DatabasePokemonError.left() },
-            ifRight = { it.right() }
+            ifRight = { it.right() },
         )
     }
 
     override fun save(pokemon: Pokemon): Either<PokemonError, Pokemon> {
-        val request = Either.catch {
-            jpaDataSource.save(pokemon.toLocal())
-        }
+        val request =
+            Either.catch {
+                jpaDataSource.save(pokemon.toLocal())
+            }
 
         return request.fold(
             ifLeft = { PokemonError.DatabasePokemonError.left() },
-            ifRight = { it.toDomain().right() }
+            ifRight = { it.toDomain().right() },
         )
     }
 
     override fun deleteById(id: Int): Either<PokemonError, Unit> {
-        val request = Either.catch {
-            jpaDataSource.deleteById(id)
-        }
+        val request =
+            Either.catch {
+                jpaDataSource.deleteById(id)
+            }
 
         return request.fold(
             ifLeft = { PokemonError.DatabasePokemonError.left() },
-            ifRight = { Unit.right() }
+            ifRight = { Unit.right() },
         )
     }
 }

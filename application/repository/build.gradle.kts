@@ -2,6 +2,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("com.example.spring.kotlin")
+    id("com.example.detekt")
 }
 
 group = "com.organisation.projectname"

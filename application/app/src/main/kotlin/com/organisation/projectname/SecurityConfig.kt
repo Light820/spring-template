@@ -12,8 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 
+private const val POKEMON_OWNER = "POKEMON-OWNER"
 
 @Configuration
 class SecurityConfig {
@@ -23,10 +23,8 @@ class SecurityConfig {
             .authorizeHttpRequests { request ->
                 request
                     .requestMatchers(MvcRequestMatcher(null, "/pokemon/**"))
-                    .hasRole("POKEMON-OWNER")
-
-            }
-            .httpBasic(Customizer.withDefaults())
+                    .hasRole(POKEMON_OWNER)
+            }.httpBasic(Customizer.withDefaults())
             .csrf { csrf -> csrf.disable() }
         return http.build()
     }
@@ -34,29 +32,30 @@ class SecurityConfig {
     @Bean
     fun testOnlyUsers(passwordEncoder: PasswordEncoder): UserDetailsService {
         val users: User.UserBuilder = User.builder()
-        val sarah: UserDetails = users
-            .username("Light")
-            .password(passwordEncoder.encode("abc123"))
-            .roles("POKEMON-OWNER")
-            .build()
+        val sarah: UserDetails =
+            users
+                .username("Light")
+                .password(passwordEncoder.encode("abc123"))
+                .roles(POKEMON_OWNER)
+                .build()
 
-        val hankOwnsNoPokemons = users
-            .username("hank-owns-no-Pokemons")
-            .password(passwordEncoder.encode("qrs456"))
-            .roles("NON-OWNER")
-            .build()
+        val hankOwnsNoPokemons =
+            users
+                .username("hank-owns-no-Pokemons")
+                .password(passwordEncoder.encode("qrs456"))
+                .roles("NON-OWNER")
+                .build()
 
-        val kumar = users
-            .username("Ashe")
-            .password(passwordEncoder.encode("xyz789"))
-            .roles("POKEMON-OWNER")
-            .build()
+        val kumar =
+            users
+                .username("Ashe")
+                .password(passwordEncoder.encode("xyz789"))
+                .roles(POKEMON_OWNER)
+                .build()
 
         return InMemoryUserDetailsManager(sarah, hankOwnsNoPokemons, kumar)
     }
 
     @Bean
-    fun passwordEncoder(): PasswordEncoder {
-        return BCryptPasswordEncoder()
-    }
+    fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
 }

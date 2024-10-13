@@ -44,12 +44,15 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+      - name : Merge Detekt Reports
+        run: ./gradlew reportMerge
+
       # Step 6: Run tests using JUnit 5
       - name: Run tests with JUnit 5
         run: ./gradlew test
 
       - name: Detekt code analysis upload to GitHub
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         if: success() || failure()
         with:
           sarif_file: build/reports/detekt/project-report.sarif

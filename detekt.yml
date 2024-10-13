@@ -9,7 +9,7 @@ build:
 
 config:
   validation: true
-  warningsAsErrors: false
+  warningsAsErrors: true
   checkExhaustiveness: true
   excludes: ''
 
@@ -710,9 +710,11 @@ style:
     active: true
   UnusedPrivateMember:
     active: true
+    severity: warning
     allowedNames: ''
   UnusedPrivateProperty:
     active: true
+    severity: warning
     allowedNames: '_|ignored|expected|serialVersionUID'
   UseAnyOrNoneInsteadOfFind:
     active: true

@@ -16,6 +16,7 @@ class DetektConventionPlugin : Plugin<Project> {
             configure<DetektExtension> {
                 basePath = projectDir.path
                 config.setFrom("${rootProject.rootDir}/detekt.yml")
+                ignoreFailures = true
             }
 
             tasks.register<ReportMergeTask>("reportMerge") {

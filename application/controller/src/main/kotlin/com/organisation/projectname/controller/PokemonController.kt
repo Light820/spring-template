@@ -58,7 +58,7 @@ class PokemonController(
     }
 
     @GetMapping
-    fun findAll(
+    private fun findAll(
         pageable: Pageable,
         principal: Principal,
     ): ResponseEntity<List<PokemonDtoOut>> =

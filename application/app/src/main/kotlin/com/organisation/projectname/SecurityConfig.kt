@@ -13,6 +13,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher
 
+private const val POKEMON_OWNER = "POKEMON-OWNER"
+
 @Configuration
 class SecurityConfig {
     @Bean
@@ -21,7 +23,7 @@ class SecurityConfig {
             .authorizeHttpRequests { request ->
                 request
                     .requestMatchers(MvcRequestMatcher(null, "/pokemon/**"))
-                    .hasRole("POKEMON-OWNER")
+                    .hasRole(POKEMON_OWNER)
             }.httpBasic(Customizer.withDefaults())
             .csrf { csrf -> csrf.disable() }
         return http.build()
@@ -34,7 +36,7 @@ class SecurityConfig {
             users
                 .username("Light")
                 .password(passwordEncoder.encode("abc123"))
-                .roles("POKEMON-OWNER")
+                .roles(POKEMON_OWNER)
                 .build()
 
         val hankOwnsNoPokemons =
@@ -48,7 +50,7 @@ class SecurityConfig {
             users
                 .username("Ashe")
                 .password(passwordEncoder.encode("xyz789"))
-                .roles("POKEMON-OWNER")
+                .roles(POKEMON_OWNER)
                 .build()
 
         return InMemoryUserDetailsManager(sarah, hankOwnsNoPokemons, kumar)

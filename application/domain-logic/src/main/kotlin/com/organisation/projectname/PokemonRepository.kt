@@ -1,9 +1,6 @@
-package org.example.com.organisation.projectname
+package com.organisation.projectname
 
 import arrow.core.Either
-import com.organisation.projectname.PageInfo
-import com.organisation.projectname.Pokemon
-import com.organisation.projectname.PokemonError
 
 interface PokemonRepository {
     fun findByIdAndOwner(

@@ -11,6 +11,7 @@ repositories {
 dependencies {
     implementation(projects.common)
     implementation(libs.spotless)
+    implementation(libs.detekt)
 }
 
 gradlePlugin {
@@ -39,6 +40,13 @@ gradlePlugin {
         register("com.example.spotless") {
             id = "com.example.spotless"
             implementationClass = "SpotlessConventionPlugin"
+        }
+    }
+
+    plugins {
+        register("com.example.detekt") {
+            id = "com.example.detekt"
+            implementationClass = "DetektConventionPlugin"
         }
     }
 }

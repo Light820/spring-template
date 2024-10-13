@@ -3,6 +3,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar
 plugins {
     id("com.example.spring.kotlin")
     id("com.example.junit5")
+    id("com.example.detekt")
 }
 
 dependencies {

@@ -1,11 +1,11 @@
 package com.organisation.projectname.controller
 
 import com.organisation.projectname.PageInfo
+import com.organisation.projectname.PokemonRepository
 import com.organisation.projectname.mapper.toDomain
 import com.organisation.projectname.mapper.toDto
 import com.organisation.projectname.model.PokemonDtoIn
 import com.organisation.projectname.model.PokemonDtoOut
-import org.example.com.organisation.projectname.PokemonRepository
 import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -25,7 +25,7 @@ class PokemonController(
     private val repository: PokemonRepository,
 ) {
     @GetMapping("/{id}")
-    private fun findById(
+    fun findById(
         @PathVariable id: Int,
         principal: Principal,
     ): ResponseEntity<PokemonDtoOut> =
@@ -35,7 +35,7 @@ class PokemonController(
         )
 
     @PostMapping
-    private fun create(
+    fun create(
         @RequestBody pokemonDtoOut: PokemonDtoIn,
         ucb: UriComponentsBuilder,
         principal: Principal,
@@ -58,7 +58,7 @@ class PokemonController(
     }
 
     @GetMapping
-    private fun findAll(
+    fun findAll(
         pageable: Pageable,
         principal: Principal,
     ): ResponseEntity<List<PokemonDtoOut>> =
@@ -70,7 +70,7 @@ class PokemonController(
             )
 
     @PutMapping("/{requestedId}")
-    private fun put(
+    fun put(
         @PathVariable requestedId: Int,
         @RequestBody pokemonDtoIn: PokemonDtoIn,
         principal: Principal,
@@ -99,7 +99,7 @@ class PokemonController(
     }
 
     @DeleteMapping("/{id}")
-    private fun deleteById(
+    fun deleteById(
         @PathVariable id: Int,
         principal: Principal,
     ): ResponseEntity<PokemonDtoOut> {

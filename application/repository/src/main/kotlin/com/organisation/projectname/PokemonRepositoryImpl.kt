@@ -1,6 +1,5 @@
 package com.organisation.projectname
 
-import org.example.com.organisation.projectname.PokemonRepository
 import org.springframework.stereotype.Repository
 
 @Repository

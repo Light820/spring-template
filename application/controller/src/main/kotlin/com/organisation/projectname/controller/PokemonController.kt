@@ -44,14 +44,13 @@ class PokemonController(
                     .buildAndExpand(it.id)
                     .toUri()
 
-                val hello = ""
                 ResponseEntity.created(locationOfNewPokemon).body(it.toDto())
             },
         )
     }
 
     @GetMapping
-    private fun findAll(pageable: Pageable, principal: Principal): ResponseEntity<List<PokemonDtoOut>> {
+     fun findAll(pageable: Pageable, principal: Principal): ResponseEntity<List<PokemonDtoOut>> {
         return repository.findByOwner(principal.name, PageInfo(pageable.pageNumber, pageable.pageSize))
             .fold(
                 ifLeft = { ResponseEntity.notFound().build() },
@@ -60,7 +59,7 @@ class PokemonController(
     }
 
     @PutMapping("/{requestedId}")
-    private fun put(
+     fun put(
         @PathVariable requestedId: Int,
         @RequestBody pokemonDtoIn: PokemonDtoIn,
         principal: Principal,

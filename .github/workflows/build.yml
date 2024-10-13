@@ -40,19 +40,21 @@ jobs:
       - name: Grant execute permission for Gradle
         run: chmod +x gradlew
 
+      - name: Code Formatting - Spotless
+        run: ./gradlew spotlessCheck
+        if: always()
+
       # Step 5: Build the project using Gradle (compiling Kotlin code)
       - name: Build with Gradle
-        run: ./gradlew build -x detekt spotlessCheck
+        run: ./gradlew build -x spotlessApply -x detekt
+        if: always()
 
       - name: Code Analysis - Detekt
         run: ./gradlew detekt
+        if: always()
 
       - name : Merge Detekt Reports
         run: ./gradlew reportMerge
-        if: always()
-
-      - name: Check SARIF file
-        run: cat build/reports/detekt/project-report.sarif
         if: always()
 
       # Step 6: Run tests using JUnit 5

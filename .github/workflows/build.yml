@@ -1,4 +1,4 @@
-name: main-branch
+name: develop-branch
 
 # Trigger builds on changes to main or develop branches
 on:

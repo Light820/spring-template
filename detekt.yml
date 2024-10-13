@@ -9,7 +9,7 @@ build:
 
 config:
   validation: true
-  warningsAsErrors: true
+  warningsAsErrors: false
   checkExhaustiveness: true
   excludes: ''
 

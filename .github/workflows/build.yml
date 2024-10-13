@@ -53,6 +53,7 @@ jobs:
 
       - name: Check SARIF file
         run: cat build/reports/detekt/project-report.sarif
+        if: always()
 
       # Step 6: Run tests using JUnit 5
       - name: Run tests with JUnit 5

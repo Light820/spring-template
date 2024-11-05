@@ -69,6 +69,12 @@ class PokemonController(
                 ifRight = { ResponseEntity.ok(it.map { it.toDto() }) },
             )
 
+
+    @GetMapping("/test")
+    private fun test(
+        principal: Principal,
+    ): ResponseEntity<String> = ResponseEntity.ok("Hello")
+
     @PutMapping("/{requestedId}")
     private fun put(
         @PathVariable requestedId: Int,

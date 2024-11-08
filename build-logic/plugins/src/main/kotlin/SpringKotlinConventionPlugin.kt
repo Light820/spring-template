@@ -16,7 +16,7 @@ open class SpringKotlinConventionPlugin : Plugin<Project> {
             dependencies {
                 implementation(libs.findLibrary("spring-boot-starter-web").get())
                 implementation(libs.findLibrary("spring-boot-starter-data-jpa").get())
-                implementation(libs.findLibrary("spring-boot-starter-security").get())
+
                 implementation(libs.findLibrary("kotlin-reflect").get())
                 testImplementation(libs.findLibrary("spring-boot-starter-test").get())
                 implementation(libs.findLibrary("h2").get())

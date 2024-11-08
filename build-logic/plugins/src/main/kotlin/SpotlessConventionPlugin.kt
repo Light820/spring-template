@@ -12,6 +12,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 kotlin {
                     target("**/*.kt", "**/*.kts")
                     targetExclude("build/**/*.kts")
+                    targetExclude("**/data.sql")
                     val ktlintVersion = libs.findVersion("ktlint").get().toString()
                     ktlint(ktlintVersion)
                 }

@@ -8,6 +8,7 @@ arrow = "1.2.0"
 postgres = "42.7.4"
 spotless = "7.0.0.BETA2"
 ktlint = "1.3.1"
+ktor = "2.3.12"
 
 [libraries]
 spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
@@ -30,6 +31,14 @@ postgres-sql = { group = "org.postgresql", name = "postgresql", version.ref = "p
 spotless = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 ktlint = { group = "com.pinterest", name = "ktlint", version.ref = "ktlint" }
 
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
@@ -38,3 +47,12 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version.ref = "kotlin" }
 spotless-plugin = { id = "com.diffplug.spotless", version.ref = "spotless" }
+
+[bundles]
+ktor = [
+  "ktor-client-core",
+  "ktor-client-content-negotiation",
+  "ktor-client-auth",
+  "ktor-client-logging",
+  "ktor-serialization-kotlinx-json",
+]

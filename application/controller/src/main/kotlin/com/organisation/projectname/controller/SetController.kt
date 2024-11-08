@@ -25,12 +25,27 @@ class SetController(
         val cards = cardRepository.getAll().getOrNull() ?: emptyList()
 
         val result =
-            sets.map { opSet ->
-                OpSetDto(
-                    opSet,
-                    cards.filter { it.setId == opSet.id },
+            sets
+                .map { opSet ->
+                    OpSetDto(
+                        opSet,
+                        cards.filter { it.setId == opSet.id },
+                    )
+                }.sortedWith(
+                    compareBy(
+                        {
+                            if (it.setInfo.id == "EB-01") {
+                                1
+                            } else if (it.setInfo.id == "PRB-01") {
+                                1
+                            } else {
+                                0
+                            }
+                        }, // "EB-01" and "PRB-01" go to the end
+                        { it.setInfo.id }, // Sort the rest by setInfo.id
+                    ),
                 )
-            }
+
         return ResponseEntity.ok(result)
     }
 }

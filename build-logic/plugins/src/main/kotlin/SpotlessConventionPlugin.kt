@@ -12,7 +12,6 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 kotlin {
                     target("**/*.kt", "**/*.kts")
                     targetExclude("build/**/*.kts")
-                    targetExclude("**/data.sql")
                     val ktlintVersion = libs.findVersion("ktlint").get().toString()
                     ktlint(ktlintVersion)
                 }
@@ -20,12 +19,6 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 json {
                     target("src/**/*.json")
                     simple()
-                }
-
-                format("sql") {
-                    target("**/*.sql")
-                    prettier(mapOf("prettier" to "latest", "prettier-plugin-sql" to "latest"))
-                        .config(mapOf("parser" to "sql", "plugins" to listOf("prettier-plugin-sql")))
                 }
 
                 format("toml") {

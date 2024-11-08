@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 class CardLocalDsImpl(
     private val cardJpaDs: CardJpaDs,
 ) : CardLocalDs {
-    override fun getAll(): Either<PokemonError, List<Card>> =
+    override fun getAll(): Either<OpCollectorError, List<Card>> =
         Either
             .catch {
                 cardJpaDs.findAll().map {
@@ -25,5 +25,5 @@ class CardLocalDsImpl(
                         description = it.description,
                     )
                 }
-            }.mapLeft { PokemonError.DatabasePokemonError }
+            }.mapLeft { OpCollectorError.DatabaseOpCollectorError }
 }

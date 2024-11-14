@@ -14,8 +14,8 @@ class SetController(
     private val setRepository: SetRepository,
     private val cardRepository: CardRepository,
 ) {
-    @GetMapping
-    private fun getAll(): ResponseEntity<List<OpSetDto>> {
+    @GetMapping("/booster")
+    private fun getAllBooster(): ResponseEntity<List<OpSetDto>> {
         val sets =
             setRepository.getAll().fold(
                 ifLeft = { emptyList() },
@@ -45,6 +45,29 @@ class SetController(
                         { it.setInfo.id }, // Sort the rest by setInfo.id
                     ),
                 )
+
+        return ResponseEntity.ok(result)
+    }
+
+    @GetMapping("/deck")
+    private fun getAllDecks(): ResponseEntity<List<OpSetDto>> {
+        val sets =
+            setRepository.getAll().fold(
+                ifLeft = { emptyList() },
+                ifRight = { it.filter { it.type.contains("DECK") } },
+            )
+
+        val cards = cardRepository.getAll().getOrNull() ?: emptyList()
+
+        val result =
+            sets
+                .map { opSet ->
+                    OpSetDto(
+                        opSet,
+                        cards.filter { it.setId == opSet.id },
+                    )
+                }
+                .sortedBy { it.setInfo.id }
 
         return ResponseEntity.ok(result)
     }

@@ -66,8 +66,7 @@ class SetController(
                         opSet,
                         cards.filter { it.setId == opSet.id },
                     )
-                }
-                .sortedBy { it.setInfo.id }
+                }.sortedBy { it.setInfo.id }
 
         return ResponseEntity.ok(result)
     }

@@ -13,9 +13,13 @@ class CardController(
     private val repository: CardRepository,
 ) {
     @GetMapping
-    private fun getAll(): ResponseEntity<List<Card>> =
+    private fun getAll(): ResponseEntity<GetAllCardResponse> =
         repository.getAll().fold(
             ifLeft = { ResponseEntity.internalServerError().build() },
-            ifRight = { ResponseEntity.ok(it) },
+            ifRight = { ResponseEntity.ok(GetAllCardResponse(it)) },
         )
 }
+
+data class GetAllCardResponse(
+    val cards: List<Card>,
+)

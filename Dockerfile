@@ -1,4 +1,4 @@
-FROM openjdk:21-jdk-slim
+FROM arm64v8/openjdk:21-jdk-slim
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 EXPOSE 10000
